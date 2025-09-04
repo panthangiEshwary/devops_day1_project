@@ -1,22 +1,24 @@
-name: Run DevOps Script
+name: Run Hello DevOps Script
 
 on:
   push:
     branches:
-      - main  # or your branch name
-  pull_request:
+      - main
 
 jobs:
-  run-script:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Make script executable
-        run: chmod +x hello_devops.sh
+      - name: Run script
+        run: |
+          chmod +x hello_devops.sh
+          ./hello_devops.sh
 
-      - name: Run the script
-        run: ./hello_devops.sh
+      - name: Run tests
+        run: |
+          chmod +x test_hello_devops.sh
+          ./test_hello_devops.sh
 
