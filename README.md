@@ -1,11 +1,11 @@
-Step 1: Create a project folder
+**Step 1**: Create a project folder
 mkdir devops_day1_project
 cd devops_day1_project
 
-Step 2: Initialize Git repo
+**Step 2:** Initialize Git repo
 git init
 
-Step 3: Created a simple script
+**Step 3: **Created a simple script
 Created a file hello_devops.sh:
 
 touch hello_devops.sh
@@ -17,14 +17,14 @@ echo "Hello DevOps!"
 date
 This script prints "Hello DevOps!" and the current date/time.
 
-Step 4: Run the script
+**Step 4: Run the script**
 ./hello_devops.sh
 
 You should see:
 Hello DevOps!
 Thu Sep 4 11:00:00 IST 2025
 
-Step 5: Commit your script to Git
+**Step 5: Commit your script to Git**
 git add hello_devops.sh
 git commit -m "Add first DevOps script"
 git status
