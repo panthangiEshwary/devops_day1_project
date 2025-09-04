@@ -1,0 +1,79 @@
+1️⃣ Workflow name
+name: Run DevOps Script
+
+
+This is just a friendly name for your workflow.
+
+You’ll see this name in the GitHub Actions UI when the workflow runs.
+
+2️⃣ When the workflow runs
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+
+on: tells GitHub when to trigger this workflow.
+
+push: → runs when you push code to the repository.
+
+branches: - main → only runs when you push to the main branch.
+
+pull_request: → runs when a pull request is opened or updated.
+So basically, your script runs on push to main and pull requests.
+
+3️⃣ Jobs
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+
+jobs: → defines one or more tasks (jobs) that the workflow will run.
+
+run-script: → the ID of this job (you can call it anything).
+
+runs-on: ubuntu-latest → the job runs on a fresh Ubuntu Linux virtual machine provided by GitHub.
+
+4️⃣ Steps
+steps:
+
+
+A job has multiple steps that run in order.
+
+Step 1: Checkout repository
+- name: Checkout repository
+  uses: actions/checkout@v3
+
+
+uses: actions/checkout@v3 → this is a prebuilt GitHub Action.
+
+It clones your repository into the VM so the workflow can access your files.
+
+Without this, the VM won’t have your hello_devops.sh file.
+
+Step 2: Make script executable
+- name: Make script executable
+  run: chmod +x hello_devops.sh
+
+
+run: → runs a shell command on the VM.
+
+chmod +x hello_devops.sh → makes your shell script executable, just like chmod +x on your local machine.
+
+Step 3: Run the script
+- name: Run the script
+  run: ./hello_devops.sh
+
+
+This actually runs your shell script.
+
+Whatever your script prints (like "Hello DevOps!") will appear in the GitHub Actions log.
+
+✅ Summary:
+
+This workflow triggers on push to main or pull request.
+
+It runs on an Ubuntu VM.
+
+It checks out your code, makes the script executable, and then runs it.
